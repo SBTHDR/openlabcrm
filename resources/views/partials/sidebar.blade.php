@@ -21,20 +21,23 @@
 
             <li class="c-sidebar-nav-title">{{ __('Manage Checklists') }}</li>
             @foreach (\App\Models\ChecklistGroup::with('checklists')->get() as $group)
-            <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <li class="c-sidebar-nav-item c-sidebar-nav-dropdown c-show">
                 <a class="c-sidebar-nav-link" href="{{ route('admin.checklist_groups.edit', $group->id) }}">
-                    <svg class="c-sidebar-nav-icon">
+                    <svg class="c-sidebar-nav-icon c-sidebar-nav-dropdown-toggle">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
                     </svg> {{ $group->name }}
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     @foreach($group->checklists as $checklist)
                     <li class="c-sidebar-nav-item">
-                        <a class="c-sidebar-nav-link" href="{{ route('admin.checklists.edit', $checklist->id) }}"><span class="c-sidebar-nav-icon"></span>
+                        <a class="c-sidebar-nav-link" href="{{ route('admin.checklist_groups.checklists.edit', [$group, $checklist]) }}"><span class="c-sidebar-nav-icon"></span>
                             {{ $checklist->name }}
                         </a>
                     </li>
                     @endforeach
+                    <li class="c-sidebar-nav-item">
+                        <a class="c-sidebar-nav-link" href="{{ route('admin.checklist_groups.checklists.create', $group) }}">{{ __('New checklist') }}</a>
+                    </li>
                 </ul>
             </li>
             @endforeach
