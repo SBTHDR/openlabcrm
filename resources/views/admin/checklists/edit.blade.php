@@ -41,7 +41,7 @@
                             @csrf
                             @method('DELETE')
                             <div class="form-group">
-                                <button type="submit" onclick="return confirm('{{ __('Are you sure?') }}')" class="btn btn-danger">{{ __('Delete Checklist') }}</button>
+                                <button type="submit"  class="btn btn-danger show_confirm">{{ __('Delete Checklist') }}</button>
                             </div>
                         </form>
                     </div>
