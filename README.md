@@ -2,7 +2,7 @@
 
 ## About Repository
 
-Openlabcrm is an micro module task management system based on Laravel 8. 
+Openlabcrm is a micro module task management system based on Laravel 8. 
 Backend system provide a complete management of Task CRUD, 
 with full role and permission based authentication and authorization.
 
