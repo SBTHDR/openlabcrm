@@ -47,6 +47,11 @@
                     </div>
 
                 </div>
+
+                    <hr>
+
+                    <h5>{{ __('Task list') }}</h5>
+
             </div>
         </div>
     </div>

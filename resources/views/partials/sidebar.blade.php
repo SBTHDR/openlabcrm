@@ -31,7 +31,7 @@
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     @foreach($group->checklists as $checklist)
-                    <li class="c-sidebar-nav-item">
+                    <li class="c-sidebar-nav-item ml-3">
                         <a class="c-sidebar-nav-link" href="{{ route('admin.checklist_groups.checklists.edit', [$group, $checklist]) }}"><span class="c-sidebar-nav-icon"></span>
                             <svg class="c-sidebar-nav-icon">
                                 <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-file') }}"></use>
@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     @endforeach
-                    <li class="c-sidebar-nav-item">
+                    <li class="c-sidebar-nav-item ml-3">
                         <a class="c-sidebar-nav-link" href="{{ route('admin.checklist_groups.checklists.create', $group) }}">
                             <svg class="c-sidebar-nav-icon">
                                 <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-task') }}"></use>
