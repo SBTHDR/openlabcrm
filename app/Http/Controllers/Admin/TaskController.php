@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreTaskRequest;
+use App\Models\Checklist;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -30,12 +32,13 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  StoreTaskRequest  $request
+     * @param  Checklist $checklist
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTaskRequest $request, Checklist $checklist)
     {
-        //
+        $checklist->tasks()->create($request->validated());
     }
 
     /**
