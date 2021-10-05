@@ -67,8 +67,18 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <label for="name">{{ __('Task Name') }}</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="name" placeholder="{{ __('Add a task name here...') }}">
+                                            <input type="text" class="form-control" name="name">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="name">{{ __('Description') }}</label>
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="description" rows="5"></textarea>
                                         </div>
                                     </div>
                                 </div>
