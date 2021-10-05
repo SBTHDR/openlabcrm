@@ -39,6 +39,10 @@ class TaskController extends Controller
     public function store(StoreTaskRequest $request, Checklist $checklist)
     {
         $checklist->tasks()->create($request->validated());
+
+        return redirect()->route('admin.checklist_groups.checklists.edit', [
+            $checklist->checklist_group_id, $checklist
+        ]);
     }
 
     /**
