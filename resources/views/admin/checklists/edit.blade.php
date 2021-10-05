@@ -52,9 +52,9 @@
 
                     <h5>{{ __('Task list') }}</h5>
 
-                    @if ($errors->any())
+                    @if ($errors->storetask->any())
                         <div class="alert alert-danger my-2">
-                            @foreach ($errors->all() as $error)
+                            @foreach ($errors->storetask->all() as $error)
                                 {{ $error }}
                             @endforeach
                         </div>
