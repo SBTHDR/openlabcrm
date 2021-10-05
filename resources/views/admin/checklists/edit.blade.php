@@ -52,6 +52,34 @@
 
                     <h5>{{ __('Task list') }}</h5>
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger my-2">
+                            @foreach ($errors->all() as $error)
+                                {{ $error }}
+                            @endforeach
+                        </div>
+                    @endif
+
+                    <div class="card p-3">
+                        <form action="{{ route('admin.checklists.tasks.store', [ $checklist ]) }}" method="post">
+                            @csrf
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="name" placeholder="{{ __('Add a task name here...') }}">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            <button type="submit" class="btn btn-primary">{{ __('Add New Task') }}</button>
+
+                        </form>
+
+                    </div>
+
             </div>
         </div>
     </div>
