@@ -52,31 +52,7 @@
 
                     <h5>{{ __('Task list') }}</h5>
 
-                    <div class="card p-3">
-                        <table class="table">
-                            <tbody>
-                            @foreach($checklist->tasks as $task)
-                            <tr>
-                                <td>{{ $task->name }}</td>
-                                <td class="d-flex">
-                                    <div class="mr-2">
-                                        <a class="btn btn-primary" href="{{ route('admin.checklists.tasks.edit', [$checklist, $task]) }}">{{ __('Edit') }}</a>
-                                    </div>
-                                    <div>
-                                        <form action="{{ route('admin.checklists.tasks.destroy', [$checklist, $task]) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <div class="form-group">
-                                                <button type="submit"  class="btn btn-danger show_confirm">{{ __('Delete') }}</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                    @livewire('task-table', ['checklist' => $checklist])
 
                     @if ($errors->storetask->any())
                         <div class="alert alert-danger my-2">
