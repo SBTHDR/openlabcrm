@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTaskRequest;
 use App\Models\Checklist;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -82,11 +83,16 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Checklist  $checklist
+     * @param  Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Checklist $checklist, Task $task)
     {
-        //
+        $task->delete();
+
+        return redirect()->route('admin.checklist_groups.checklists.edit', [
+            $checklist->checklist_group_id, $checklist
+        ]);
     }
 }

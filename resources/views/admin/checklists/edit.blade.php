@@ -52,6 +52,27 @@
 
                     <h5>{{ __('Task list') }}</h5>
 
+                    <div class="card p-3">
+                        <table class="table">
+                            <tbody>
+                            @foreach($checklist->tasks as $task)
+                            <tr>
+                                <td>{{ $task->name }}</td>
+                                <td>
+                                    <form action="{{ route('admin.checklists.tasks.destroy', [$checklist, $task]) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="form-group">
+                                            <button type="submit"  class="btn btn-danger show_confirm">{{ __('Delete') }}</button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
                     @if ($errors->storetask->any())
                         <div class="alert alert-danger my-2">
                             @foreach ($errors->storetask->all() as $error)
