@@ -61,23 +61,49 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js" integrity="sha512-yUNtg0k40IvRQNR20bJ4oH6QeQ/mgs9Lsa6V+3qxTj58u2r+JiAYOhOW0o+ijuMmqCtCEg7LZRA+T4t84/ayVA==" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/@coreui/coreui@3.4.0/dist/js/coreui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+{{--        Old Sweetalert CDN--}}
+{{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>--}}
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript">
+
+            {{-- Old Sweetalert --}}
+            // $('.show_confirm').click(function(event) {
+            //     var form =  $(this).closest("form");
+            //     event.preventDefault();
+            //     swal({
+            //         title: `Are you sure you want to delete?`,
+            //         icon: "warning",
+            //         buttons: true,
+            //         dangerMode: true,
+            //     })
+            //         .then((willDelete) => {
+            //             if (willDelete) {
+            //                 form.submit();
+            //             }
+            //         });
+            // });
 
             $('.show_confirm').click(function(event) {
                 var form =  $(this).closest("form");
                 event.preventDefault();
-                swal({
-                    title: `Are you sure you want to delete?`,
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You want to delete.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, Delete'
+                }).then((willDelete) => {
+                    if (willDelete.isConfirmed) {
+                        form.submit();
+                        // Swal.fire(
+                        //     'Deleted!',
+                        //     'Your file has been deleted.',
+                        //     'success'
+                        // )
+                    }
                 })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            form.submit();
-                        }
-                    });
             });
 
         </script>
