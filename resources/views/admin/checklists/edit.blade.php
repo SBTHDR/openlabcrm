@@ -58,14 +58,19 @@
                             @foreach($checklist->tasks as $task)
                             <tr>
                                 <td>{{ $task->name }}</td>
-                                <td>
-                                    <form action="{{ route('admin.checklists.tasks.destroy', [$checklist, $task]) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <div class="form-group">
-                                            <button type="submit"  class="btn btn-danger show_confirm">{{ __('Delete') }}</button>
-                                        </div>
-                                    </form>
+                                <td class="d-flex">
+                                    <div class="mr-2">
+                                        <a class="btn btn-primary" href="{{ route('admin.checklists.tasks.edit', [$checklist, $task]) }}">{{ __('Edit') }}</a>
+                                    </div>
+                                    <div>
+                                        <form action="{{ route('admin.checklists.tasks.destroy', [$checklist, $task]) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <div class="form-group">
+                                                <button type="submit"  class="btn btn-danger show_confirm">{{ __('Delete') }}</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
