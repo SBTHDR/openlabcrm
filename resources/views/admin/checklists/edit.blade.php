@@ -78,9 +78,9 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="description">{{ __('Description') }}</label>
+                                        <label for="editor">{{ __('Description') }}</label>
                                         <div class="form-group">
-                                            <textarea class="form-control" id="description" name="description" rows="5">{{ old('description') }}</textarea>
+                                            <textarea class="form-control" id="editor" name="description" rows="5">{{ old('description') }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -96,4 +96,14 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
