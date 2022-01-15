@@ -26,7 +26,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="name">{{ __('Checklist Group Name') }}</label>
-                                        <input type="text" value="{{ $checklistGroup->name }}" class="form-control" name="name">
+                                        <input type="text" id="name" name="name" value="{{ $checklistGroup->name }}" class="form-control">
                                     </div>
                                 </div>
                             </div>

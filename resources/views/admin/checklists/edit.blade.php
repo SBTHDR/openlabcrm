@@ -26,7 +26,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="name">{{ __('Checklists Name') }}</label>
-                                        <input type="text" value="{{ $checklist->name }}" class="form-control" name="name" placeholder="{{ __('Give a checklists name...') }}">
+                                        <input type="text" id="name" value="{{ $checklist->name }}" class="form-control" name="name">
                                     </div>
                                 </div>
                             </div>
@@ -69,16 +69,16 @@
                                     <div class="col-md-12">
                                         <label for="name">{{ __('Task Name') }}</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="name">
+                                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="name">{{ __('Description') }}</label>
+                                        <label for="description">{{ __('Description') }}</label>
                                         <div class="form-group">
-                                            <textarea class="form-control" name="description" rows="5"></textarea>
+                                            <textarea class="form-control" id="description" name="description" rows="5">{{ old('description') }}</textarea>
                                         </div>
                                     </div>
                                 </div>
