@@ -52,19 +52,18 @@
                     {{ __('Create checklist group') }}
                 </a>
             </li>
+
+            <li class="c-sidebar-nav-title">{{ __('Pages') }}</li>
+            @foreach(\App\Models\Page::all() as $page)
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('admin.pages.edit', $page) }}">
+                        <svg class="c-sidebar-nav-icon">
+                            <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-calendar-check') }}"></use>
+                        </svg> {{ $page->title }}
+                    </a>
+                </li>
+            @endforeach
         @endif
-
-        <li class="c-sidebar-nav-title">{{ __('Pages') }}</li>
-        @foreach(\App\Models\Page::all() as $page)
-            <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="{{ route('admin.pages.edit', $page) }}">
-                    <svg class="c-sidebar-nav-icon">
-                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-calendar-check') }}"></use>
-                    </svg> {{ $page->title }}
-                </a>
-            </li>
-        @endforeach
-
 
         <li class="c-sidebar-nav-title">{{ __('Other') }}</li>
         <li>
