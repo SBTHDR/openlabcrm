@@ -10,14 +10,6 @@
         </li>
 
         @if(auth()->user()->is_admin)
-            <li class="c-sidebar-nav-title">{{ __('Admin') }}</li>
-            <li class="c-sidebar-nav-item">
-                <a class="c-sidebar-nav-link" href="{{ route('admin.pages.index') }}">
-                    <svg class="c-sidebar-nav-icon">
-                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-calendar-check') }}"></use>
-                    </svg> {{ __('Pages') }}
-                </a>
-            </li>
 
             <li class="c-sidebar-nav-title">{{ __('Manage Checklists') }}</li>
 
@@ -45,7 +37,7 @@
                             <svg class="c-sidebar-nav-icon">
                                 <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-task') }}"></use>
                             </svg>
-                            {{ __('New checklist') }}
+                            {{ __('Create checklist') }}
                         </a>
                     </li>
                 </ul>
@@ -57,22 +49,35 @@
                     <svg class="c-sidebar-nav-icon">
                         <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-task') }}"></use>
                     </svg>
-                    {{ __('New checklist group') }}
+                    {{ __('Create checklist group') }}
                 </a>
             </li>
         @endif
 
-        <li>
-            <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
-                <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+        <li class="c-sidebar-nav-title">{{ __('Pages') }}</li>
+        @foreach(\App\Models\Page::all() as $page)
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" href="{{ route('admin.pages.edit', $page) }}">
                     <svg class="c-sidebar-nav-icon">
-                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-clone') }}"></use>
-                    </svg> Base
+                        <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-calendar-check') }}"></use>
+                    </svg> {{ $page->title }}
                 </a>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/breadcrumb.html"><span class="c-sidebar-nav-icon"></span> Breadcrumb</a>
-                </ul>
             </li>
+        @endforeach
+
+
+        <li class="c-sidebar-nav-title">{{ __('Other') }}</li>
+        <li>
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('vendors/@coreui/icons/svg/free.svg#cil-clone') }}"></use>
+                </svg> Settings
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/breadcrumb.html"><span class="c-sidebar-nav-icon"></span> Breadcrumb</a>
+            </ul>
+        </li>
         </li>
 
         <li class="c-sidebar-nav-item">
