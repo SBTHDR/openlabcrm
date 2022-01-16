@@ -93,9 +93,9 @@
                     text: "You want to delete.",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, Delete'
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Delete'
                 }).then((willDelete) => {
                     if (willDelete.isConfirmed) {
                         form.submit();
