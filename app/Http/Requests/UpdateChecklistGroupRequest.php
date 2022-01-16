@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateChecklistGroupRequest extends FormRequest
 {
@@ -24,7 +25,8 @@ class UpdateChecklistGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            Rule::unique('checklist_groups')->ignore($this->checklist_group),
         ];
     }
 }
